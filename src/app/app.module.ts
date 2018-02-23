@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AppRoutingModule } from './routing/app-routing.module';
+import { DetailModule } from './component/detail/detail.module';
 
 
 @NgModule({
