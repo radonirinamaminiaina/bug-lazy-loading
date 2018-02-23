@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListComponent } from '../component/list/list.component';
-
+import { ListModule } from '../component/list/list.module'
 const routes: Routes = [
-  { path: 'list', component: ListComponent}
+  { path: 'listes', loadChildren: () => ListModule }
 ];
 
 @NgModule({
