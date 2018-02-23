@@ -4,7 +4,7 @@
     <a [routerLink]="['/survey']" class="btn btn-success">Back to list</a>
   </p>
   <div class="row">
-    <div class="result col-md-4" *ngFor="let res of results" >
+    <div class="result" *ngFor="let res of results; let i = index" [ngClass]="{'col-md-6': i > 0, 'col-md-12': i == 0}">
       <div class="card">
           <div class="card-body">
               <h5 class="card-title text-uppercase">{{res.type}}</h5>
