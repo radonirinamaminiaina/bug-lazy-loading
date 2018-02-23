@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 /* import { ListModule } from '../component/list/list.module'
 import { DetailModule } from '../component/detail/detail.module' */
 const routes: Routes = [
-  { path: 'listes', loadChildren: '../component/list/list.module#ListModule' },
-  { path: 'liste/:id', loadChildren: '../component/detail/detail.module#DetailModule' },
+  { path: 'survey', loadChildren: '../component/list/list.module#ListModule' },
+  { path: 'survey/:id', loadChildren: '../component/detail/detail.module#DetailModule' },
 ];
 
 @NgModule({

@@ -1,3 +1,17 @@
-<p>
-  detail works!
-</p>
+<div class="container detail">
+  <h1>Detail {{param}}</h1>
+  <p>
+    <a [routerLink]="['/survey']" class="btn btn-success">Back to list</a>
+  </p>
+  <div class="row">
+    <div class="result col-md-4" *ngFor="let res of results" >
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title text-uppercase">{{res.type}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{res.label}}</h6>
+              <div [innerHTML]="res.result | parser"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
