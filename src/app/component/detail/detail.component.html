@@ -9,7 +9,7 @@
           <div class="card-body">
               <h5 class="card-title text-uppercase">{{res.type}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{res.label}}</h6>
-              <div [innerHTML]="res.result | parser"></div>
+              <div [innerHTML]="res.result | parser" appChart></div>
           </div>
       </div>
     </div>

@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as Chart from 'chart.js';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
   name: 'parser'
 })
 export class ParserPipe implements PipeTransform {
+  constructor (private sanitizer: DomSanitizer) {}
   transform(value: any, args?: any): any {
     if (value instanceof Array) {
       let tpl = '';
@@ -35,35 +36,7 @@ export class ParserPipe implements PipeTransform {
         tmpArrayLabel.push(item);
         tmpArrayValue.push(value[item]);
       });
-      import ('chart.js').then(function () {
-        const chartEl:any = document.querySelector('.chart');
-        chartEl.innerHTML = '<canvas id="canvas"></canvas>';
-        const canvas: any = document.getElementById('canvas');
-        // start chart
-        const options = {
-          type: 'pie',
-          data: {
-            datasets: [{
-              data: tmpArrayValue,
-              backgroundColor: [
-                '#fe6283',
-                '#ffcd56',
-                '#4cc0c0',
-                '#37a2eb',
-                '#ff9f40',
-                '#ff40dd',
-              ]
-            }],
-            labels: tmpArrayLabel
-          },
-          options: {
-            responsive: true
-          }
-        }
-        // build chart
-        new Chart(canvas.getContext('2d'), options);
-      });
-      return `<div><div class="chart"></div></div>`;
+      return this.sanitizer.bypassSecurityTrustHtml(`<canvas id="chart" data-value='${JSON.stringify(tmpArrayValue)}' data-label='${JSON.stringify(tmpArrayLabel)}'></canvas>`);
     } else {
       return `<span class="badge badge-primary">${value}</span>`;
     }
