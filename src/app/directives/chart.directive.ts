@@ -1,5 +1,6 @@
 import { Directive, ElementRef } from '@angular/core';
 
+declare var require;
 @Directive({
   selector: '[appChart]'
 })
