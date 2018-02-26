@@ -8,8 +8,8 @@ import { DetailModule } from './component/detail/detail.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'survey', loadChildren: './component/list/list.module#ListModule' },
-  { path: 'survey/:id', loadChildren: './component/detail/detail.module#DetailModule' }
+  { path: 'survey', loadChildren: 'app/component/list/list.module#ListModule' },
+  { path: 'survey/:id', loadChildren: 'app/component/detail/detail.module#DetailModule' }
 ];
 
 @NgModule({
